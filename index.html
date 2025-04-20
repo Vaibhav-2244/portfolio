@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vaibhav Bhargava - Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
+    <div class="cursor-dot"></div>
 
     <nav class="navbar">
         <div class="logo">
@@ -36,9 +42,15 @@
         </div>
     </nav>
 
-    <section id="home" class="hero">
+    <section class="hero">
+        <div class="hero-quote">
+            <p>Fuelled by curiosity, guided by intention.</p>
+            <p>I craft, I create, I evolve.</p>
+        </div>
         <div class="hero-content">
             <div class="profile-container">
+                <div class="border-effect"></div>
+                <div class="border-effect secondary"></div>
                 <div class="profile-image">
                     <img src="images/My image.jpg" alt="Vaibhav Bhargava">
                 </div>
@@ -104,20 +116,45 @@
         </div>
     </section>
 
-    <section id="experience" class="experience">
-        <h2>Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Web Development Intern</h3>
-                    <h4>IFFCO, Saket, New Delhi</h4>
-                    <p class="date">Jun 2024 - Aug 2024</p>
-                    <ul>
-                        <li>Developed a comprehensive website with frontend and backend functionality</li>
-                        <li>Implemented secure login/signup system and user profile management</li>
-                        <li>Created RESTful APIs and managed MySQL database operations</li>
-                        <li>Ensured cross-browser compatibility and responsive design</li>
-                    </ul>
+    <section id="experience" class="experience py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Experience</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="experience-card">
+                        <div class="experience-content">
+                            <div class="company-info d-flex align-items-center mb-4">
+                                <div class="company-logo-container me-4">
+                                    <img src="images/iffco.png" alt="IFFCO Logo" class="company-logo">
+                                </div>
+                                <div class="company-details">
+                                    <h3 class="mb-1">Web Development Intern</h3>
+                                    <h4 class="mb-1">IFFCO, Saket, New Delhi</h4>
+                                    <p class="date text-muted">Jun 2024 - Aug 2024</p>
+                                </div>
+                            </div>
+                            <div class="experience-description">
+                                <ul class="list-unstyled">
+                                    <li class="mb-3">
+                                        <i class="fas fa-check-circle text-primary me-2"></i>
+                                        Developed a comprehensive website with frontend and backend functionality
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-check-circle text-primary me-2"></i>
+                                        Implemented secure login/signup system and user profile management
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-check-circle text-primary me-2"></i>
+                                        Created RESTful APIs and managed MySQL database operations
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-check-circle text-primary me-2"></i>
+                                        Ensured cross-browser compatibility and responsive design
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -143,106 +180,186 @@
 
     <section id="certifications" class="certifications">
         <h2>Certifications</h2>
-        <div class="certifications-grid">
-            <div class="certification-card">
-                <div class="certification-image">
-                    <img src="#" alt="HackIndia 2024">
-                </div>
-                <div class="certification-content">
-                    <h3>HackIndia 2024 - Web3 Hackathon</h3>
-                    <p class="issuer">HackIndia</p>
-                    <p class="date">August 2024</p>
-                    <p class="description">Participated in HackIndia 2024, a prestigious Web3-based hackathon at Manav Rachna University, Faridabad. As a member of Team Rising Phoenix, developed an innovative Web3 platform with secure authentication and crypto analysis dashboard.</p>
+        <div class="certifications-carousel">
+            <button class="carousel-btn prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="certification-card">
+                        <div class="certification-image">
+                            <img src="images/hackindia.jpeg" alt="HackIndia 2024">
+                        </div>
+                        <div class="certification-content">
+                            <h3>HackIndia 2024 - Web3 Hackathon</h3>
+                            <p class="issuer">HackIndia</p>
+                            <p class="date">August 2024</p>
+                            <p class="description">Participated in a 48-hour hackathon focused on Web3 technologies, developing innovative blockchain solutions and decentralized applications.</p>
+                        </div>
+                    </div>
+                    <div class="certification-card">
+                        <div class="certification-image">
+                            <img src="images/iffco.jpeg" alt="IFFCO Internship">
+                        </div>
+                        <div class="certification-content">
+                            <h3>Internship Completion Certificate</h3>
+                            <p class="issuer">Indian Farmers Fertilizer Cooperative Limited</p>
+                            <p class="date">August 2024</p>
+                            <p class="description">Successfully completed a summer internship, contributing to web development projects and gaining hands-on experience in enterprise software development.</p>
+                        </div>
+                    </div>
+                    <div class="certification-card">
+                        <div class="certification-image">
+                            <img src="images/cognizance.jfif" alt="AWS Workshop">
+                        </div>
+                        <div class="certification-content">
+                            <h3>Workshop on Containers and AIML on AWS Cloud</h3>
+                            <p class="issuer">Cognizance, IIT Roorkee</p>
+                            <p class="date">March 2024</p>
+                            <p class="description">Attended an intensive workshop covering containerization technologies and machine learning deployment on AWS cloud infrastructure.</p>
+                        </div>
+                    </div>
+                    <div class="certification-card">
+                        <div class="certification-image">
+                            <img src="images/cybersureksha.jfif" alt="Cyber Suraksha">
+                        </div>
+                        <div class="certification-content">
+                            <h3>Cyber Suraksha Course</h3>
+                            <p class="issuer">Microsoft</p>
+                            <p class="date">October 2023</p>
+                            <p class="description">Completed a comprehensive cybersecurity course covering network security, ethical hacking, and digital forensics.</p>
+                        </div>
+                    </div>
+                    <div class="certification-card">
+                        <div class="certification-image">
+                            <img src="images/dataanalysis.jfif" alt="Data Analytics Workshop">
+                        </div>
+                        <div class="certification-content">
+                            <h3>Hands on Workshop in Data Analytics</h3>
+                            <p class="issuer">DPGITM</p>
+                            <p class="date">September 2023</p>
+                            <p class="description">Participated in an intensive workshop focused on data analysis techniques, visualization tools, and practical applications of data analytics in real-world scenarios.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="certification-card">
-                <div class="certification-image">
-                    <img src="#" alt="IFFCO Internship">
-                </div>
-                <div class="certification-content">
-                    <h3>Internship Completion Certificate</h3>
-                    <p class="issuer">Indian Farmers Fertilizer Cooperative Limited</p>
-                    <p class="date">August 2024</p>
-                    <p class="description">Successfully completed a two-month internship at IFFCO Saket, New Delhi, developing a comprehensive web application with secure login, dashboard, and CRUD operations.</p>
-                </div>
-            </div>
-            <div class="certification-card">
-                <div class="certification-image">
-                    <img src="#" alt="AWS Workshop">
-                </div>
-                <div class="certification-content">
-                    <h3>Workshop on Containers and AIML on AWS Cloud</h3>
-                    <p class="issuer">Cognizance, IIT Roorkee</p>
-                    <p class="date">March 2024</p>
-                    <p class="description">Participated in an advanced workshop on AWS Cloud services, focusing on containerization and AI/ML applications.</p>
-                </div>
-            </div>
-            <div class="certification-card">
-                <div class="certification-image">
-                    <img src="#" alt="Data Analytics">
-                </div>
-                <div class="certification-content">
-                    <h3>Hands on Workshop in Data Analytics</h3>
-                    <p class="issuer">DPG Institute of Technology and Management</p>
-                    <p class="date">February 2024</p>
-                    <p class="description">Completed a comprehensive Data Analytics certification program, gaining hands-on experience with data analysis and visualization using Tableau software.</p>
-                </div>
-            </div>
-            <div class="certification-card">
-                <div class="certification-image">
-                    <img src="#" alt="Cyber Suraksha">
-                </div>
-                <div class="certification-content">
-                    <h3>Cyber Suraksha Course</h3>
-                    <p class="issuer">Microsoft</p>
-                    <p class="date">October 2023</p>
-                    <p class="description">Completed a 40-hour online course in Cyber Suraksha, enhancing knowledge in cybersecurity, threat analysis, and risk management.</p>
-                </div>
-            </div>
+            <button class="carousel-btn next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </section>
 
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="certificate-modal">
+        <span class="close-modal">&times;</span>
+        <div class="certificate-modal-content">
+            <img id="modalCertificateImage" src="" alt="Certificate">
+        </div>
+    </div>
+
     <section id="projects" class="projects">
         <h2>Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="#" alt="Web3 Platform">
-                </div>
-                <div class="project-content">
-                    <h3>Web3 Platform Development</h3>
-                    <p class="project-description">Developed an innovative Web3 platform during HackIndia 2024, featuring secure user authentication, dynamic profile management, and an advanced crypto analysis dashboard.</p>
-                    <div class="project-tech">
-                        <span>Web3</span>
-                        <span>Blockchain</span>
-                        <span>DApps</span>
+        <div class="projects-carousel">
+            <button class="carousel-btn prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="#" alt="Web3 Platform">
+                        </div>
+                        <div class="project-content">
+                            <h3>Web3 Platform Development</h3>
+                            <p class="project-description">Developed an innovative Web3 platform during HackIndia 2024, featuring secure user authentication, dynamic profile management, and an advanced crypto analysis dashboard.</p>
+                            <div class="project-tech">
+                                <span>Web3</span>
+                                <span>Blockchain</span>
+                                <span>DApps</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn secondary" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                                <a href="#" class="btn primary" onclick="openProjectShowcase('web3')"><i class="fas fa-external-link-alt"></i> View Project</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn secondary" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                        <a href="#" class="btn primary" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="#" alt="IFFCO Website">
+                        </div>
+                        <div class="project-content">
+                            <h3>IFFCO Web Application</h3>
+                            <p class="project-description">Built a comprehensive web application during internship at IFFCO, implementing secure login/signup system, user profile management, and CRUD operations.</p>
+                            <div class="project-tech">
+                                <span>Node.js</span>
+                                <span>MySQL</span>
+                                <span>Express.js</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn secondary" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                                <a href="#" class="btn primary" onclick="openProjectShowcase('iffco')"><i class="fas fa-external-link-alt"></i> View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="#" alt="AI Chatbot">
+                        </div>
+                        <div class="project-content">
+                            <h3>AI-Powered Chatbot</h3>
+                            <p class="project-description">Developed an intelligent chatbot using natural language processing and machine learning algorithms to provide automated customer support and information retrieval.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>NLP</span>
+                                <span>Machine Learning</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn secondary" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                                <a href="#" class="btn primary" onclick="openProjectShowcase('ai-chatbot')"><i class="fas fa-external-link-alt"></i> View Project</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="#" alt="IFFCO Website">
-                </div>
-                <div class="project-content">
-                    <h3>IFFCO Web Application</h3>
-                    <p class="project-description">Built a comprehensive web application during internship at IFFCO, implementing secure login/signup system, user profile management, and CRUD operations.</p>
-                    <div class="project-tech">
-                        <span>Node.js</span>
-                        <span>MySQL</span>
-                        <span>Express.js</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn secondary" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                        <a href="#" class="btn primary" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                    </div>
-                </div>
-            </div>
+            <button class="carousel-btn next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </section>
+
+    <!-- Project Showcase Modal -->
+    <div id="projectShowcaseModal" class="project-showcase-modal">
+        <div class="project-showcase-content">
+            <div class="project-showcase-header">
+                <h2 class="project-showcase-title">Project Title</h2>
+                <span class="project-showcase-close">&times;</span>
+            </div>
+            <div class="project-showcase-media">
+                <!-- Media items will be dynamically added here -->
+            </div>
+            <div class="project-showcase-description">
+                <!-- Description will be dynamically added here -->
+            </div>
+            <div class="project-showcase-tech">
+                <!-- Tech tags will be dynamically added here -->
+            </div>
+            <div class="project-showcase-links">
+                <!-- Links will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Media Modal -->
+    <div id="projectMediaModal" class="project-media-modal">
+        <span class="close-media-modal">&times;</span>
+        <div class="project-media-modal-content">
+            <img id="modalProjectImage" src="" alt="Project Image">
+            <video id="modalProjectVideo" controls>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 
     <section id="contact" class="contact">
         <h2>Get In Touch</h2>
@@ -299,6 +416,9 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 </html> 
