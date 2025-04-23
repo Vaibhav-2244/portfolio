@@ -16,50 +16,151 @@
             justify-content: center;
             text-align: center;
             padding: 2rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Light Rays Background Effect */
+        .thank-you-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, 
+                    rgba(233, 69, 96, 0.1) 0%, 
+                    transparent 20%, 
+                    rgba(233, 69, 96, 0.1) 40%, 
+                    transparent 60%, 
+                    rgba(233, 69, 96, 0.1) 80%, 
+                    transparent 100%
+                );
+            animation: lightRays 15s linear infinite;
+            z-index: 1;
+        }
+
+        .thank-you-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 50% 50%, 
+                    rgba(233, 69, 96, 0.15) 0%, 
+                    transparent 50%
+                );
+            animation: lightRaysShift 20s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .thank-you-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .thank-you-icon {
-            font-size: 4rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
+            font-size: 5rem;
+            color: var(--highlight-color);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         .thank-you-title {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--text-color), var(--highlight-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .thank-you-message {
             font-size: 1.2rem;
-            color: var(--text-color);
+            color: var(--text-secondary);
             margin-bottom: 2rem;
             max-width: 600px;
+            line-height: 1.6;
         }
 
         .back-home {
             display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--secondary-color);
+            padding: 1rem 2.5rem;
+            background: var(--highlight-color);
             color: white;
             text-decoration: none;
             border-radius: 30px;
             transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
         }
 
         .back-home:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes lightRays {
+            0% {
+                transform: translateX(-100%) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateX(100%) rotate(45deg);
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes lightRaysShift {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.2) rotate(5deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.6;
+            }
         }
     </style>
 </head>
 <body>
     <div class="thank-you-container">
-        <i class="fas fa-check-circle thank-you-icon"></i>
-        <h1 class="thank-you-title">Thank You!</h1>
-        <p class="thank-you-message">Your message has been successfully sent. I'll get back to you as soon as possible.</p>
-        <a href="index.html" class="back-home">Back to Home</a>
+        <div class="thank-you-content">
+            <i class="fas fa-check-circle thank-you-icon"></i>
+            <h1 class="thank-you-title">Thank You!</h1>
+            <p class="thank-you-message">Your message has been successfully sent. I'll get back to you as soon as possible.</p>
+            <a href="index.html" class="back-home">Back to Home</a>
+        </div>
     </div>
 </body>
 </html> 

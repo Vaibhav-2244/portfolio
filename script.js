@@ -292,9 +292,9 @@ const projectData = {
         description: 'Developed an innovative Web3 platform during HackIndia 2024, featuring secure user authentication, dynamic profile management, and an advanced crypto analysis dashboard. The platform enables users to securely manage their digital assets and analyze cryptocurrency trends.',
         tech: ['Web3', 'Blockchain', 'DApps', 'React', 'Node.js', 'Solidity'],
         media: [
-            { type: 'image', src: 'images/projects/web3/dashboard.png', alt: 'Dashboard View' },
+            { type: 'image', src: 'images/hackindia.jpeg', alt: 'Dashboard View' },
             { type: 'image', src: 'images/projects/web3/auth.png', alt: 'Authentication' },
-            { type: 'video', src: 'images/projects/web3/demo.mp4', alt: 'Platform Demo' }
+            { type: 'video', src: 'images/sample.mp4', alt: 'Platform Demo' }
         ],
         links: [
             { icon: 'fab fa-github', text: 'View Code', url: '#' }
@@ -353,7 +353,7 @@ function openProjectShowcase(projectId) {
                 <img src="${item.src}" alt="${item.alt}" onerror="this.src='images/placeholder.png'">
             </div>`;
         } else {
-            return `<div class="project-showcase-item" onclick="openProjectMedia('${item.src}', 'video', event)">
+            return `<div class="project-showcase-item" data-type="video" onclick="openProjectMedia('${item.src}', 'video', event)">
                 <video>
                     <source src="${item.src}" type="video/mp4">
                     Your browser does not support the video tag.

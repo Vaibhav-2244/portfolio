@@ -1,0 +1,77 @@
+/* Custom Cursor */
+.cursor {
+    width: 20px;
+    height: 20px;
+    background: var(--highlight-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.2s ease;
+    mix-blend-mode: difference;
+}
+
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--highlight-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.3s ease;
+    mix-blend-mode: difference;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--highlight-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: difference;
+}
+
+/* Cursor hover effects */
+a, button, .btn, .nav-links a, .contact-item, .experience-card, .project-card, .certification-card {
+    cursor: none;
+}
+
+a:hover ~ .cursor,
+button:hover ~ .cursor,
+.btn:hover ~ .cursor,
+.nav-links a:hover ~ .cursor,
+.contact-item:hover ~ .cursor,
+.experience-card:hover ~ .cursor,
+.project-card:hover ~ .cursor,
+.certification-card:hover ~ .cursor {
+    transform: scale(1.5);
+}
+
+a:hover ~ .cursor-follower,
+button:hover ~ .cursor-follower,
+.btn:hover ~ .cursor-follower,
+.nav-links a:hover ~ .cursor-follower,
+.contact-item:hover ~ .cursor-follower,
+.experience-card:hover ~ .cursor-follower,
+.project-card:hover ~ .cursor-follower,
+.certification-card:hover ~ .cursor-follower {
+    transform: scale(1.5);
+}
+
+/* Show cursor only on desktop */
+@media (min-width: 769px) {
+    .cursor, .cursor-follower, .cursor-dot {
+        display: block;
+    }
+}
+
+/* Hide cursor on touch devices */
+@media (hover: none) {
+    .cursor, .cursor-follower, .cursor-dot {
+        display: none;
+    }
+} 

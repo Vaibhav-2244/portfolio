@@ -1,13 +1,16 @@
 /* Global Styles */
 :root {
-    --primary-color: #2d3436;
-    --secondary-color: #0984e3;
-    --accent-color: #00b894;
-    --text-color: #2d3436;
-    --bg-color: #ffffff;
-    --section-bg: #f5f6fa;
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #0f3460;
+    --highlight-color: #e94560;
+    --text-color: #ffffff;
+    --text-secondary: #b8b8b8;
+    --bg-color: #0a0a0a;
+    --card-bg: #1a1a2e;
+    --section-bg: #16213e;
     --transition: all 0.3s ease;
-    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     --border-radius: 15px;
 }
 
@@ -34,37 +37,37 @@ body {
 .cursor {
     width: 20px;
     height: 20px;
-    background: var(--secondary-color);
+    background: var(--highlight-color);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 9999;
     transition: transform 0.2s ease;
-    display: none; /* Hidden by default */
+    mix-blend-mode: difference;
 }
 
 .cursor-follower {
     width: 40px;
     height: 40px;
-    border: 2px solid var(--secondary-color);
+    border: 2px solid var(--highlight-color);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 9998;
     transition: transform 0.3s ease;
-    display: none; /* Hidden by default */
+    mix-blend-mode: difference;
 }
 
 .cursor-dot {
     width: 8px;
     height: 8px;
-    background: var(--secondary-color);
+    background: var(--highlight-color);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 9999;
     transition: transform 0.1s ease;
-    display: none; /* Hidden by default */
+    mix-blend-mode: difference;
 }
 
 /* Show cursor only on desktop */
@@ -90,7 +93,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(26, 26, 46, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -107,8 +110,35 @@ body {
 .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--secondary-color);
+    color: var(--highlight-color);
     transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.logo-text::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--highlight-color);
+    transition: width 0.3s ease;
+}
+
+.logo-text:hover {
+    transform: translateY(-2px);
+}
+
+.logo-text:hover::before {
+    width: 100%;
+}
+
+/* Navbar Scrolled State */
+.navbar.scrolled .logo-text {
+    color: var(--highlight-color);
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
 }
 
 .nav-links {
@@ -118,25 +148,29 @@ body {
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
     position: relative;
-    transition: var(--transition);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
 }
 
-.nav-links a::after {
+.nav-links a::before {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--secondary-color);
+    background: var(--highlight-color);
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover {
+    color: var(--highlight-color);
+}
+
+.nav-links a:hover::before {
     width: 100%;
 }
 
@@ -355,7 +389,7 @@ body {
 
 .project-showcase-content {
     position: relative;
-    background: #1a1a1a;
+    background: var(--card-bg);
     margin: 5% auto;
     padding: 20px;
     width: 90%;
@@ -374,7 +408,7 @@ body {
 }
 
 .project-showcase-title {
-    color: white;
+    color: var(--highlight-color);
     font-size: 1.5rem;
     margin: 0;
 }
@@ -402,6 +436,9 @@ body {
     position: relative;
     cursor: pointer;
     transition: transform 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--card-bg);
 }
 
 .project-showcase-item:hover {
@@ -417,7 +454,7 @@ body {
 }
 
 .project-showcase-description {
-    color: #ccc;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -430,8 +467,8 @@ body {
 }
 
 .tech-tag {
-    background: rgba(9, 132, 227, 0.2);
-    color: #0984e3;
+    background: rgba(233, 69, 96, 0.2);
+    color: var(--highlight-color);
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -451,7 +488,7 @@ body {
     border-radius: 5px;
     text-decoration: none;
     color: white;
-    background: #0984e3;
+    background: var(--highlight-color);
     transition: all 0.3s ease;
 }
 
@@ -489,6 +526,43 @@ body {
     transform: translateY(0);
 }
 
+/* Video Indicator */
+.project-showcase-item[data-type="video"]::before {
+    content: '\f144';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: var(--highlight-color);
+    z-index: 2;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.project-showcase-item[data-type="video"]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.project-showcase-item[data-type="video"]:hover::before {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+}
+
+.project-showcase-item[data-type="video"]:hover::after {
+    background: rgba(0, 0, 0, 0.5);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .profile-container {
@@ -521,7 +595,7 @@ body {
 .hero {
     position: relative;
     padding: 4rem 0;
-    background: #0a192f;
+    background: var(--primary-color);
     overflow: hidden;
     min-height: 100vh;
     display: flex;
@@ -624,13 +698,71 @@ body {
     padding: 0 2rem;
 }
 
+/* Hero Section Name Styling */
 .hero h1 {
     margin-top: 2rem;
     font-size: 3.5rem;
-    color: #fff;
+    color: var(--text-color);
     position: relative;
     z-index: 2;
-    text-shadow: 0 0 10px rgba(9, 132, 227, 0.3);
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
+    background: linear-gradient(45deg, var(--text-color), var(--highlight-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite,
+        gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--highlight-color);
+    animation: line-grow 3.5s ease forwards;
+}
+
+@keyframes line-grow {
+    to {
+        width: 100%;
+    }
+}
+
+.hero h1::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--highlight-color);
+    opacity: 0;
+    animation: fade-in 1s ease forwards 2s;
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
 }
 
 .tagline {
@@ -746,14 +878,14 @@ body {
 }
 
 .btn.primary {
-    background: var(--secondary-color);
-    color: white;
+    background: var(--highlight-color);
+    color: var(--text-color);
 }
 
 .btn.secondary {
     background: transparent;
-    color: var(--secondary-color);
-    border: 2px solid var(--secondary-color);
+    color: var(--highlight-color);
+    border: 2px solid var(--highlight-color);
 }
 
 .btn:hover {
@@ -765,13 +897,72 @@ body {
 section {
     padding: 5rem 5%;
     animation: fadeIn 0.8s ease-out;
+    background: var(--section-bg);
+    color: var(--text-color);
 }
 
 section h2 {
-    font-size: 2.5rem;
+    color: var(--text-color);
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--primary-color);
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+section h2::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--highlight-color), transparent);
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--highlight-color);
+}
+
+/* Section Headings with Icons */
+section h2 i {
+    color: var(--highlight-color);
+    margin-right: 1rem;
+    font-size: 2rem;
+    vertical-align: middle;
+}
+
+/* Section Headings Animation */
+section h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section Headings Hover Effect */
+section h2:hover::before {
+    width: 150px;
+    transition: width 0.3s ease;
+}
+
+section h2:hover::after {
+    width: 75px;
+    transition: width 0.3s ease;
 }
 
 /* About Section */
@@ -795,7 +986,7 @@ section h2 {
 }
 
 .skill-category {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -807,7 +998,7 @@ section h2 {
 }
 
 .skill-category h3 {
-    color: var(--secondary-color);
+    color: var(--highlight-color);
     margin-bottom: 1rem;
 }
 
@@ -818,59 +1009,40 @@ section h2 {
 }
 
 .skill-items span {
-    background: var(--section-bg);
+    background: rgba(233, 69, 96, 0.1);
+    color: var(--text-color);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    border: 1px solid rgba(233, 69, 96, 0.2);
 }
 
 .skill-items span:hover {
-    background: var(--secondary-color);
-    color: white;
+    background: var(--highlight-color);
+    color: var(--text-color);
 }
 
 /* Experience Section */
 .experience {
-    background: #f8f9fa;
+    background: var(--section-bg);
+    padding: 5rem 0;
     position: relative;
-    overflow: hidden;
 }
 
-.experience::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(9, 132, 227, 0.05) 0%, rgba(9, 132, 227, 0) 100%);
-    z-index: 0;
-}
-
-.experience::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(9, 132, 227, 0.1) 0%, rgba(9, 132, 227, 0) 70%);
-    border-radius: 50%;
-    transform: translate(50%, -50%);
-    z-index: 0;
-}
-
-.experience .container {
-    position: relative;
-    z-index: 1;
+.experience h2 {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
 }
 
 .experience-card {
-    background: white;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
 }
@@ -882,38 +1054,43 @@ section h2 {
     left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(to bottom, #0984e3, #74b9ff);
+    background: var(--highlight-color);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .experience-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .experience-card:hover::before {
     opacity: 1;
 }
 
-.experience-content {
-    padding: 30px;
+.company-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .company-logo-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    transition: transform 0.3s ease;
     width: 120px;
     height: 80px;
-    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
 }
 
 .company-logo-container:hover {
     transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .company-logo {
@@ -923,24 +1100,64 @@ section h2 {
 }
 
 .company-details h3 {
-    color: #0984e3;
+    color: var(--highlight-color);
     font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .company-details h4 {
-    color: #2d3436;
+    color: var(--text-color);
     font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.company-details .date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-description {
+    color: var(--text-secondary);
 }
 
 .experience-description li {
-    color: #2d3436;
     display: flex;
     align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
 }
 
 .experience-description li i {
-    color: #0984e3;
-    font-size: 1.1rem;
+    color: var(--highlight-color);
+    font-size: 1.2rem;
+}
+
+.experience-description li:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Design for Experience Section */
+@media (max-width: 768px) {
+    .company-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .company-logo-container {
+        width: 100px;
+        height: 60px;
+    }
+
+    .company-details h3 {
+        font-size: 1.3rem;
+    }
+
+    .company-details h4 {
+        font-size: 1rem;
+    }
 }
 
 /* Education Section */
@@ -953,7 +1170,7 @@ section h2 {
 }
 
 .education-item {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -984,37 +1201,48 @@ section h2 {
 }
 
 .contact-info {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
     transition: all 0.3s ease;
 }
 
 .contact-item:hover {
-    background: var(--section-bg);
+    background: rgba(255, 255, 255, 0.1);
     transform: translateX(10px);
 }
 
 .contact-item i {
     font-size: 1.5rem;
-    color: var(--secondary-color);
-    width: 40px;
-    height: 40px;
+    color: var(--highlight-color);
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(9, 132, 227, 0.1);
+    background: rgba(233, 69, 96, 0.1);
     border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover i {
+    background: var(--highlight-color);
+    color: var(--text-color);
+    transform: scale(1.1);
+}
+
+.contact-item p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 1.1rem;
 }
 
 .social-links {
@@ -1037,7 +1265,7 @@ section h2 {
 /* Footer */
 .footer {
     background: var(--primary-color);
-    color: white;
+    color: var(--text-color);
     padding: 3rem 5% 2rem;
 }
 
@@ -1055,7 +1283,7 @@ section h2 {
 }
 
 .footer-social a {
-    color: #ccc;
+    color: var(--text-color);
     font-size: 1.8rem;
     transition: all 0.3s ease;
     padding: 0.5rem;
@@ -1066,7 +1294,7 @@ section h2 {
 .footer-social a:hover {
     color: var(--secondary-color);
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--highlight-color);
 }
 
 .footer-bottom {
@@ -1093,10 +1321,11 @@ section h2 {
 
 /* Contact Form */
 .contact-form-container {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .contact-form {
@@ -1113,11 +1342,13 @@ section h2 {
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    border: 2px solid #eee;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
 }
 
 .form-group textarea {
@@ -1127,16 +1358,15 @@ section h2 {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: var(--secondary-color);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(9, 132, 227, 0.1);
+    border-color: var(--highlight-color);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .form-group label {
     position: absolute;
     left: 1rem;
     top: 1rem;
-    color: #666;
+    color: var(--text-secondary);
     transition: all 0.3s ease;
     pointer-events: none;
 }
@@ -1148,9 +1378,9 @@ section h2 {
     top: -0.5rem;
     left: 0.5rem;
     font-size: 0.8rem;
-    background: white;
+    background: var(--card-bg);
     padding: 0 0.5rem;
-    color: var(--secondary-color);
+    color: var(--highlight-color);
 }
 
 /* Certifications Section */
@@ -1218,7 +1448,7 @@ section h2 {
 
 .certification-content h3 {
     margin-bottom: 10px;
-    color: var(--secondary-color);
+    color: var(--highlight-color);
     font-size: 1.2rem;
 }
 
@@ -1310,7 +1540,7 @@ section h2 {
 .project-card {
     flex: 0 0 calc(50% - 1rem);
     min-width: 0;
-    background: white;
+    background: var(--card-bg);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -1343,13 +1573,13 @@ section h2 {
 }
 
 .project-content h3 {
-    color: var(--secondary-color);
+    color: var(--highlight-color);
     margin-bottom: 15px;
     font-size: 1.3rem;
 }
 
 .project-description {
-    color: var(--text-color);
+    color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 20px;
@@ -1364,7 +1594,7 @@ section h2 {
 
 .project-tech span {
     background: rgba(9, 132, 227, 0.1);
-    color: var(--secondary-color);
+    color: var(--highlight-color);
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -1386,14 +1616,14 @@ section h2 {
 }
 
 .project-links .btn.primary {
-    background: var(--secondary-color);
-    color: white;
+    background: var(--highlight-color);
+    color: var(--text-color);
 }
 
 .project-links .btn.secondary {
     background: transparent;
-    color: var(--secondary-color);
-    border: 2px solid var(--secondary-color);
+    color: var(--highlight-color);
+    border: 2px solid var(--highlight-color);
 }
 
 .project-links .btn:hover {
@@ -1564,8 +1794,9 @@ section h2 {
 
 .project-media-modal-content img,
 .project-media-modal-content video {
-    width: 100%;
+    width: auto;
     height: auto;
+    max-width: 90vw;
     max-height: 90vh;
     object-fit: contain;
 }
@@ -1617,4 +1848,31 @@ section h2 {
 
 .project-media-modal {
     z-index: 3000;
+}
+
+/* Cursor hover effects */
+a, button, .btn, .nav-links a, .contact-item, .experience-card, .project-card, .certification-card {
+    cursor: none;
+}
+
+a:hover ~ .cursor,
+button:hover ~ .cursor,
+.btn:hover ~ .cursor,
+.nav-links a:hover ~ .cursor,
+.contact-item:hover ~ .cursor,
+.experience-card:hover ~ .cursor,
+.project-card:hover ~ .cursor,
+.certification-card:hover ~ .cursor {
+    transform: scale(1.5);
+}
+
+a:hover ~ .cursor-follower,
+button:hover ~ .cursor-follower,
+.btn:hover ~ .cursor-follower,
+.nav-links a:hover ~ .cursor-follower,
+.contact-item:hover ~ .cursor-follower,
+.experience-card:hover ~ .cursor-follower,
+.project-card:hover ~ .cursor-follower,
+.certification-card:hover ~ .cursor-follower {
+    transform: scale(1.5);
 } 
