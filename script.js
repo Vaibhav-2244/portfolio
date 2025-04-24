@@ -292,9 +292,9 @@ const projectData = {
         description: 'Developed an innovative Web3 platform during HackIndia 2024, featuring secure user authentication, dynamic profile management, and an advanced crypto analysis dashboard. The platform enables users to securely manage their digital assets and analyze cryptocurrency trends.',
         tech: ['Web3', 'Blockchain', 'DApps', 'React', 'Node.js', 'Solidity'],
         media: [
-            { type: 'image', src: 'images/hackindia.jpeg', alt: 'Dashboard View' },
+            { type: 'image', src: 'images/projects/web3/auth.png', alt: 'Dashboard View' },
             { type: 'image', src: 'images/projects/web3/auth.png', alt: 'Authentication' },
-            { type: 'video', src: 'images/sample.mp4', alt: 'Platform Demo' }
+            { type: 'video', src: 'images/', alt: 'Platform Demo' }
         ],
         links: [
             { icon: 'fab fa-github', text: 'View Code', url: '#' }
@@ -313,17 +313,22 @@ const projectData = {
             { icon: 'fab fa-github', text: 'View Code', url: '#' }
         ]
     },
-    'ai-chatbot': {
-        title: 'AI-Powered Chatbot',
-        description: 'Developed an intelligent chatbot using natural language processing and machine learning algorithms to provide automated customer support and information retrieval. The chatbot can understand user queries, provide relevant responses, and learn from interactions.',
-        tech: ['Python', 'NLP', 'Machine Learning', 'TensorFlow', 'NLTK'],
+    'social-media': {
+        title: 'Connect-Hub - AI-Powered Social Platform',
+        description: 'Developed Connect-Hub, a specialized social media platform for developers and tech professionals, featuring Nexi - an intelligent AI chatbot that helps users discover jobs, tech news, and GitHub projects. The platform integrates multiple APIs including NewsAPI, RemoteOK, and GitHub for real-time updates. Key features include real-time messaging with WebSocket, AI-powered spam detection, smart reply suggestions, and Nexi\'s contextual assistance. Implemented secure authentication, MySQL database with optimized queries, and advanced AI features for content moderation and user assistance.',
+        tech: ['Python', 'Flask', 'MySQL', 'WebSocket', 'AI/ML', 'REST APIs', 'NLP'],
         media: [
-            { type: 'image', src: 'images/projects/chatbot/interface.png', alt: 'Chat Interface' },
-            { type: 'image', src: 'images/projects/chatbot/architecture.png', alt: 'System Architecture' },
-            { type: 'video', src: 'images/projects/chatbot/demo.mp4', alt: 'Chatbot Demo' }
+            { type: 'image', src: 'images/social_media_app/img2.png', alt: 'Platform Interface' },
+            { type: 'image', src: 'images/social_media_app/img3.png', alt: 'Chat Interface' },
+            { type: 'image', src: 'images/social_media_app/img4.png', alt: 'Profile View' },
+            { type: 'image', src: 'images/social_media_app/img5.png', alt: 'AI Features' },
+            { type: 'image', src: 'images/social_media_app/img6.png', alt: 'Smart Reply' },
+            { type: 'image', src: 'images/social_media_app/img7.png', alt: 'Spam Detection' },
+            { type: 'image', src: 'images/social_media_app/img8.png', alt: 'User Dashboard' },
+            { type: 'video', src: 'images/social_media_app/social_media_app.mp4', alt: 'Platform Demo' }
         ],
         links: [
-            { icon: 'fab fa-github', text: 'View Code', url: '#' }
+            { icon: 'fab fa-github', text: 'View Code', url: 'https://github.com/Vaibhav-2244/social_media_app.git' }
         ]
     }
 };
