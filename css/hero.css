@@ -404,4 +404,114 @@
         top: -25px;
     }
 } 
+/* Hero Section Responsiveness */
+@media (max-width: 1200px) {
+    .hero {
+        min-height: 90vh;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero {
+        min-height: auto;
+        padding: 6rem 0;
+    }
+    
+    .hero-content {
+        padding-top: 4rem;
+    }
+    
+    .hero-quote {
+        max-width: 350px;
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 4rem 0;
+        flex-direction: column;
+    }
+    
+    .hero-quote {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 0 auto 2rem;
+        transform: none !important;
+        max-width: 100%;
+        width: 90%;
+        animation: none;
+        opacity: 1;
+    }
+    
+    .profile-container {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        margin: 0.5rem 0;
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: 3rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .profile-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .hero-quote p {
+        font-size: 1rem;
+    }
+    
+    .hero-quote::before {
+        font-size: 3.5rem;
+        top: -20px;
+    }
+}
+
+/* Fix for mobile viewport height */
+@media (max-height: 700px) and (max-width: 768px) {
+    .hero {
+        min-height: 100vh;
+        padding-top: 6rem;
+    }
+}
+/* for typewriter effect */
+@media (max-width: 576px) {
+    .hero h1 {
+        animation: 
+            typing 2.5s steps(40, end),
+            blink-caret .75s step-end infinite;
+    }
 } 

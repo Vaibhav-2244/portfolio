@@ -361,4 +361,57 @@
     .project-showcase-media {
         grid-template-columns: 1fr;
     }
-} 
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .project-card {
+        flex: 0 0 calc(50% - 1rem); /* 2 items with gap */
+    }
+    
+    .projects-carousel .carousel-track {
+        padding: 0 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects {
+        padding: 3rem 0.5rem;
+    }
+    
+    .project-card {
+        flex: 0 0 calc(100% - 0.5rem); /* 1 item with gap */
+        min-width: 280px;
+    }
+    
+    .projects-carousel .carousel-track {
+        padding: 0 2rem;
+        gap: 1rem;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .project-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-carousel .carousel-track {
+        padding: 0 1.5rem;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .project-content {
+        padding: 1rem;
+    }
+    
+}

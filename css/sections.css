@@ -1,3 +1,17 @@
+/* Common Section Styles */
+section {
+    padding: 5rem 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+section > .container,
+section > div:not([class]) {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 /* About Section */
 .about {
     background: var(--section-bg);
@@ -210,23 +224,56 @@
 }
 
 /* Responsive Design */
+@media (min-width: 768px) {
+    section {
+        padding: 6rem 5%;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr 2fr;
+    }
+    
+    .skills-grid,
+    .education-grid {
+        padding: 0;
+    }
+}
+
 @media (max-width: 768px) {
-    .company-info {
-        flex-direction: column;
-        align-items: flex-start;
+    section {
+        padding: 4rem 1rem;
+    }
+    
+    .about-content,
+    .skills-grid,
+    .education-grid {
+        padding: 0;
+    }
+    
+    .experience-card {
+        margin: 0;
+    }
+    
+    .skill-category,
+    .education-item {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 3rem 0.5rem;
+    }
+    
+    .skill-category,
+    .education-item,
+    .experience-card {
+        padding: 1rem;
+    }
+    
+    .skills-grid,
+    .education-grid {
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
-
-    .company-logo-container {
-        width: 100px;
-        height: 60px;
-    }
-
-    .company-details h3 {
-        font-size: 1.3rem;
-    }
-
-    .company-details h4 {
-        font-size: 1rem;
-    }
-} 
+}

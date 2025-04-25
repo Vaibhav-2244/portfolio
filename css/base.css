@@ -12,6 +12,9 @@
     --transition: all 0.3s ease;
     --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     --border-radius: 15px;
+    --section-padding: 5rem;
+    --mobile-section-padding: 3rem;
+    --content-padding: 1rem;
 }
 
 /* Global Styles */
@@ -36,7 +39,7 @@ body {
 
 /* Common Section Styles */
 section {
-    padding: 5rem 5%;
+    padding: var(--section-padding) 5%;
     animation: fadeIn 0.8s ease-out;
     background: var(--section-bg);
     color: var(--text-color);
@@ -116,10 +119,58 @@ section h2::after {
 /* Responsive Design */
 @media (max-width: 768px) {
     section {
-        padding: 3rem 5%;
+        padding: var(--mobile-section-padding) var(--content-padding);
     }
 
     section h2 {
         font-size: 2rem;
+    }
+}
+/* Add more breakpoints */
+@media (max-width: 1200px) {
+    section {
+        padding: 4rem 5%;
+    }
+}
+
+@media (max-width: 992px) {
+    section h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 5%;
+    }
+    
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .btn {
+        padding: 0.7rem 1.5rem;
+        margin: 0.5rem;
+        display: block;
+        width: 80%;
+        max-width: 250px;
+        margin: 0.5rem auto;
+    }
+}
+
+@media (max-width: 576px) {
+    section {
+        padding: 2rem 5%;
+    }
+    
+    section h2 {
+        font-size: 1.8rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    section h2::before,
+    section h2::after {
+        height: 2px;
     }
 } 
