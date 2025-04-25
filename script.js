@@ -83,10 +83,24 @@ window.addEventListener('scroll', () => {
 // Mobile menu toggle
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const navItems = document.querySelectorAll('.nav-links li');
 
 hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+    // Toggle menu
     hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    
+    // Toggle body scroll
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close menu when clicking on links
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+    });
 });
 
 // Form validation and animation
