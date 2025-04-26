@@ -385,6 +385,26 @@
 }
 
 /* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-quote {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 2rem auto;
+        transform: none;
+        padding: 2rem;
+    }
+
+    .hero-quote::before {
+        font-size: 4rem;
+        top: -25px;
+    }
+} 
+/* Hero Section Responsiveness */
 @media (max-width: 1200px) {
     .hero {
         min-height: 90vh;
@@ -419,15 +439,14 @@
     
     .hero-quote {
         position: relative;
-        top: 20%;
-        left: 5%;
+        top: auto;
+        left: auto;
         margin: 0 auto 2rem;
         transform: none !important;
         max-width: 100%;
         width: 90%;
         animation: none;
         opacity: 1;
-        padding: 2rem;
     }
     
     .profile-container {

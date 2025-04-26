@@ -84,14 +84,21 @@ window.addEventListener('scroll', () => {
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 const navItems = document.querySelectorAll('.nav-links li');
+const html = document.documentElement;
 
 hamburger.addEventListener('click', () => {
     // Toggle menu
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
     
-    // Toggle body scroll
-    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    // Toggle body scroll and prevent background scrolling
+    if (navLinks.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+        html.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+        html.style.overflow = '';
+    }
 });
 
 // Close menu when clicking on links
@@ -100,7 +107,18 @@ navItems.forEach(item => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
         document.body.style.overflow = '';
+        html.style.overflow = '';
     });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+        html.style.overflow = '';
+    }
 });
 
 // Form validation and animation
