@@ -320,16 +320,25 @@ function openCertificateModal(imageSrc) {
 // Project Showcase Data
 const projectData = {
     'web3': {
-        title: 'Web3 Platform Development',
-        description: 'Developed an innovative Web3 platform during HackIndia 2024, featuring secure user authentication, dynamic profile management, and an advanced crypto analysis dashboard. The platform enables users to securely manage their digital assets and analyze cryptocurrency trends.',
-        tech: ['Web3', 'Blockchain', 'DApps', 'React', 'Node.js', 'Solidity'],
+        title: 'EquiTerra: AI-Powered Web3 Based Investment Platform',
+        description: 'EquiTerra is a next-generation investment platform that combines AI-driven analytics with blockchain technology to support both real estate and startup investments. The platform uses machine learning models to generate predictive insights (such as expected rental returns, ROI, and growth potential), helping users make smarter investment decisions. It integrates with the Ethereum blockchain via smart contracts and Web3, enabling secure crypto payments and fractional ownership tokens for properties and startup equity. With a user-friendly interface and dashboard, EquiTerra streamlines the exploration, analysis, and management of diverse investment opportunities',
+        tech: ['Django', 'Ethereum & Solidity', 'Web3.js', 'IPFS', 'SQLite', 'scikit-learn & Pandas'],
         media: [
-            { type: 'image', src: 'images/projects/web3/auth.png', alt: 'Dashboard View' },
-            { type: 'image', src: 'images/projects/web3/auth.png', alt: 'Authentication' },
-            { type: 'video', src: 'images/', alt: 'Platform Demo' }
+            { type: 'image', src: 'images/EquiTerra/img (1).png', alt: 'Equiterra' },
+            { type: 'image', src: 'images/EquiTerra/img (2).png', alt: 'Equiterra' },
+            { type: 'image', src: 'images/EquiTerra/img (3).png', alt: 'Equiterra' },
+            { type: 'image', src: 'images/EquiTerra/img (4).png', alt: 'Equiterra' },
+            { type: 'image', src: 'images/EquiTerra/img (5).png', alt: 'Equiterra' },
+            { type: 'image', src: 'images/EquiTerra/img (6).png', alt: 'Equiterra' },
+            { type: 'image', src: 'images/EquiTerra/img (7).png', alt: 'Equiterra' },
+            { type: 'image', src: 'images/EquiTerra/img (8).png', alt: 'Equiterra' },
+            { type: 'image', src: 'images/EquiTerra/img (9).png', alt: 'Equiterra' },
+            { type: 'image', src: 'images/EquiTerra/img (10).png', alt: 'Equiterra' },
+            { type: 'image', src: 'images/EquiTerra/img (11).png', alt: 'Equiterra' },
+            { type: 'video', src: 'images/Equiterra/Equiterra.mp4', alt: 'Equiterra demo' }
         ],
         links: [
-            { icon: 'fab fa-github', text: 'View Code', url: '#' }
+            { icon: 'fab fa-github', text: 'View Code', url: 'https://github.com/Vaibhav-2244/EquiTerra' }
         ]
     },
     'iffco': {
