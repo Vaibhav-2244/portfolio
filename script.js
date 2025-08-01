@@ -335,23 +335,29 @@ const projectData = {
             { type: 'image', src: 'images/EquiTerra/img (9).png', alt: 'Equiterra' },
             { type: 'image', src: 'images/EquiTerra/img (10).png', alt: 'Equiterra' },
             { type: 'image', src: 'images/EquiTerra/img (11).png', alt: 'Equiterra' },
-            { type: 'video', src: 'images/Equiterra/Equiterra.mp4', alt: 'Equiterra demo' }
+            { type: 'video', src: 'images/Equiterra/Equiterra_video.mp4', alt: 'Equiterra demo' }
         ],
         links: [
             { icon: 'fab fa-github', text: 'View Code', url: 'https://github.com/Vaibhav-2244/EquiTerra' }
         ]
     },
-    'iffco': {
-        title: 'IFFCO Web Application',
-        description: 'Built a comprehensive web application during internship at IFFCO, implementing secure login/signup system, user profile management, and CRUD operations. The application streamlines internal processes and improves data management efficiency.',
-        tech: ['Node.js', 'MySQL', 'Express.js', 'React', 'Bootstrap'],
+    'Farmers_Assistant': {
+        title: 'Farmers Assistant',
+        description: 'Farmers Assistant is a bilingual AI-based web app developed using Python and Flask that helps farmers identify plant diseases from uploaded images using a ResNet50 deep learning model. It also provides accurate answers to queries like the required pH, nitrogen (N), phosphorus (P), potassium (K), temperature, humidity, and rainfall for specific crops. Real-time weather and market price data are integrated using OpenWeather and Agmarknet APIs, delivering all essential farming information in both Hindi and English through an easy-to-use interface.',
+        tech: ['Flask', 'PyTorch', 'Scikit-learn', 'Agmarknet API', 'openWeatherAPI', 'ResNet50', 'Kaggle datasets'],
         media: [
-            { type: 'image', src: 'images/projects/iffco/login.png', alt: 'Login Page' },
-            { type: 'image', src: 'images/projects/iffco/dashboard.png', alt: 'Dashboard' },
-            { type: 'video', src: 'images/projects/iffco/features.mp4', alt: 'Features Demo' }
+            { type: 'image', src: 'images/Farmers Assistant/img (1).png', alt: 'Farmers Assistant' },
+            { type: 'image', src: 'images/Farmers Assistant/img (2).png', alt: 'Farmers Assistant' },
+            { type: 'image', src: 'images/Farmers Assistant/img (3).png', alt: 'Farmers Assistant' },
+            { type: 'image', src: 'images/Farmers Assistant/img (4).png', alt: 'Farmers Assistant' },
+            { type: 'image', src: 'images/Farmers Assistant/img (5).png', alt: 'Farmers Assistant' },
+            { type: 'image', src: 'images/Farmers Assistant/img (6).png', alt: 'Farmers Assistant' },
+            { type: 'image', src: 'images/Farmers Assistant/img (7).png', alt: 'Farmers Assistant' },
+            { type: 'image', src: 'images/Farmers Assistant/img (8).png', alt: 'Farmers Assistant' }
+            // { type: 'video', src: 'images/projects/iffco/features.mp4', alt: 'Features Demo' }
         ],
         links: [
-            { icon: 'fab fa-github', text: 'View Code', url: '#' }
+            { icon: 'fab fa-github', text: 'View Code', url: 'https://github.com/Vaibhav-2244/farmers_assistant.git' }
         ]
     },
     'social-media': {
